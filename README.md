@@ -6,7 +6,7 @@
 * **Model date**: December, 2024
 * **Model version**: 0.1
 * **License**: MIT
-* **Model implementation code**: 
+* **Model implementation code**: https://github.com/ewilkin-star/TitanicProject/blob/main/Titanic_Final_Project.ipynb
 
 ### Intended Use
 * **Primary intended uses**: Educational purposes (students learning about machine learning.)
