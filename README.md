@@ -44,17 +44,18 @@
 * **State any differences in columns between training and test data**: The survival (target variable) column is absent in the test dataset. This is because the purpose of the test data is to predict survival outcomes using the model trained on the training data. Each other column remains the same.
 
 
-### Model details
+### Model Details
 * **Columns used as inputs in the final model**: 'Age', 'Fare', 'Sex_male' (dummy variable for the "Sex" column), 'Pclass_3' (dummy variable for class 3 in the "Pclass" column)
 * **Column(s) used as target(s) in the final model**: 'Survived'
 * **Type of model**: Random Forest Classifier
-* **Software used to implement the model**: Python; Libraries: sklearn (scikit-learn), pandas, and numpy
+* **Software used to implement the model**: Python; Libraries: sklearn (scikit-learn), pandas, numpy, matplotlib, and seaborn
 * **Version of the modeling software**:
   * Python: 3.10.12
   * scikit-learn: 1.5.2
   * pandas: 2.2.2
   * numpy: 1.26.4
   * matplotlib: 3.8.0
+  * seaborn: 0.13.2
 
 * **Hyperparameters or other settings of your model**: 
 ```
@@ -68,32 +69,59 @@ RandomForestClassifier(max_depth=6,
 
 | Train Accuracy | Validation Accuracy | Test Accuracy |
 | -------------- | ------------------- | ------------- |
-| 0.85534        | 0.75978             | 0.78229       |
+| 0.85534        | 0.75978             | 0.78229*      |
 
-* Model AUC
+(*Test AUC taken from "titanic_test_data_predictions.csv" when submitted to Kaggle)
+
+* **Model AUC**
 
 | Training AUC | Validation AUC |
 |--------------|----------------|
 | 0.91887      | 0.83309        |
 
-(*Test AUC taken from 
-(*Test AUC taken from https://github.com/jphall663/GWU_rml/blob/master/assignments/model_eval_2023_06_21_12_52_47.csv)
-
 * ROC Curve
 
 ![image](https://github.com/user-attachments/assets/5c49f69e-df93-4e2a-9b6a-7e8c2f24adc8)
+* The ROC curve displays the model's performance vs a random classifier (indicated by the grey line)
 
-* Model AIR
+* **Model AIR**
 
-| Group | Validation AIR |
-|-------|-----|
-| Black vs. White | 0.8345 |
-| Hispanic vs. White | 0.8765 |
-| Asian vs. White | 1.098 |
-| Female vs. Male | 1.245 |
+| Group                    | Validation AIR |
+|---------------------------------|---------|
+| Female vs. Male                 | 17.6647 |
+| 3rd Class vs. 1st & 2nd Classes | 0.3340  |
 
+![image](https://github.com/user-attachments/assets/000810ac-78f1-477b-9850-780c514f274f)
+* This chart compares the selection rate between female and male titanic passengers. The plot shows a much higher selection rate for female passengers as opposed to male passengers.
 
+![image](https://github.com/user-attachments/assets/07ba7391-c1a9-4ad7-812b-e9945be571aa)
+* This chart compares the selection rate between 3rd class and both 1st/2nd class. The plot shows a higher selection rate for passengers in the 1st and 2nd classes as opposed to 3rd class.
 
+* **Confusion Matrix for Validation Dataset**
 
+![image](https://github.com/user-attachments/assets/a52b97f9-34f7-4666-a014-76806436dc34)
+* The confusion matrix shows the model's True Positives, True Negatives, False Positives and False Negatives
 
+* **Feature Importance Plot**
+
+![image](https://github.com/user-attachments/assets/b6e454c7-3c65-4494-bcbd-a7d45b697028)
+* The feature importance plot shows the most important features the model takes into account when creating predictions. It shows that sex is the most important feature considered.
+
+* Precision-Recall Curve
+
+![image](https://github.com/user-attachments/assets/2691d409-cd91-4644-acb3-01401c445a7d)
+
+* Learning Curve
+
+![image](https://github.com/user-attachments/assets/a1f93f1c-5e04-4efb-bc80-4b94f7bba287)
+
+### Ethical Considerations
+
+* **Potential Negative Impacts**:
+  * Python: 3.10.12
+  * scikit-learn: 1.5.2
+  * pandas: 2.2.2
+  * numpy: 1.26.4
+  * matplotlib: 3.8.0
+  * seaborn: 0.13.2
 
