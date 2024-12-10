@@ -6,7 +6,7 @@
 * **Model date**: December, 2024
 * **Model version**: 0.1
 * **License**: MIT
-* **Model implementation code**: [INSERT LINK]
+* **Model implementation code**: 
 
 ### Intended Use
 * **Primary intended uses**: Educational purposes (students learning about machine learning.)
@@ -110,18 +110,22 @@ RandomForestClassifier(max_depth=6,
 * Precision-Recall Curve
 
 ![image](https://github.com/user-attachments/assets/2691d409-cd91-4644-acb3-01401c445a7d)
+* The precision-recall curve shows the model's binary classification performance
 
 * Learning Curve
 
 ![image](https://github.com/user-attachments/assets/43dea507-0832-417f-9d6f-b4065ea918d2)
+* The learning curve presented above shows how the model learns over time
 
 ### Ethical Considerations
 
 * **Potential Negative Impacts**:
-  * Python: 3.10.12
-  * scikit-learn: 1.5.2
-  * pandas: 2.2.2
-  * numpy: 1.26.4
-  * matplotlib: 3.8.0
-  * seaborn: 0.13.2
+  * Due to the nature of the training data provided by Kaggle, it was necessary that we use demographic information about the passengers in our model in order to predict survival rate. This is problematic because we are potentially encoding systemic bias into the model and if the model were to ever be used in the future it would amplify and perpetuate that systemic bias. In general, demographic information should only be used as a test for bias such as the AIR calculations that we performed, and it should not be used as an input for the model. In this case we use 'sex' and 'age' as inputs into the model which encodes any sexist or ageist bias into the model that we trained.
+  * There are also potential math and software problems relating to the model. We used 5 different packages that are all well known python packages for data analysis however we did not individually vet them ourselves and verify that there are no issues in terms of accuracy or security. We also did not verify the math that was done via computer by hand, so there is a possibility that there are unknown mathematical errors contained within the program.
+ 
+* **Uncertainties relating to model's impact**:
+  * As previously stated, the model utilized demographic information as an input and thus it is uncertain whether or not the model will contain bias if ever used in the future to classify passengers based on survival rate. The titanic was an extremely unique scenario that has seldom occurred since, which means that it is uncertain if our model will ever work again on future real world data. The world has changed significantly since the titanic shipwreck and thus the titanic data likely doesn't pertain to any current scenario where the model would be used. As a result the model may never be able to accurately predict any future shipwreck survival rates. The notebook also uses dummy variables and drops specific columns and as such the choice of features may influence the outcome unpredictably.
+
+* **Unexpected results**:
+  * It was unexpected that our validation and training accuracy scores were extremely close to one another. This is likely not a negative sign since the testing data is designed to replicate real world results, so hypothetically our model maintains accuracy when used on unseen shipwreck data similar to the titanic dataset.
 
