@@ -113,7 +113,7 @@ RandomForestClassifier(max_depth=6,
 
 * Learning Curve
 
-![image](https://github.com/user-attachments/assets/a1f93f1c-5e04-4efb-bc80-4b94f7bba287)
+![image](https://github.com/user-attachments/assets/43dea507-0832-417f-9d6f-b4065ea918d2)
 
 ### Ethical Considerations
 
